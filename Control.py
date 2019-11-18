@@ -10,8 +10,8 @@ class Control():
         humidity = 0.0
         time_of_light = 0.0
         is_covered = False
-        motor = actuators.motor  # instance of motor
-        water = actuators.water  # instance of water
+        motor = actuators.get('motor')  # instance of motor
+        water = actuators.get('water')  # instance of water
 
     def printInfo(self):
         return ", ".join("%s: %s" % item for item in self.items())
