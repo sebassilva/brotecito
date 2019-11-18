@@ -6,13 +6,13 @@ class Valve():
     def __init__(self):
         self.motor = Motor(forward=4, backward=14)
     
-    def openValveThread():
+    def openValveThread(self):
         print("Abriendo Valvula")
         motor.forward()
         sleep(5)
         print("Cerrando valvula")
     
-    def open():
+    def open(self):
         thread.start_new_thread(self.openValveThread)
 
 
