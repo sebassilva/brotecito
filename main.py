@@ -10,10 +10,11 @@ from config import *
 
 sensor = DistanceSensor(23,24)
 proximity = Proximity(sensor)
-control = Control()
+actuators = {'motor': StepperMotor(), 'water': None}
+
+control = Control(actuators)
 
 # Aquí debemos hacer un diccionario con el motor
-actuators = {'motor': StepperMotor(), 'water': None}
 
 # Obtenemos la información de todos los sensores
 def getSystemInfo():
@@ -23,6 +24,8 @@ def getSystemInfo():
 
     info = {'distance': distance, 'light': light, 'humidity': humidity}
     return info
+
+
 
 
 while True:
