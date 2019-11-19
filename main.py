@@ -4,25 +4,26 @@ from gpiozero import DistanceSensor
 from time import sleep
 from Proximity import Proximity
 from Control import Control
-from Motor import StepperMotor
+from Motor import Motor
+from Light import Light
 
 from config import *
 
 sensor = DistanceSensor(23,24)
+light = Light()
 proximity = Proximity(sensor)
-actuators = {'motor': StepperMotor(), 'water': None}
 
+actuators = {'motor': Motor(), 'water': None}
 control = Control(actuators)
 
-# Aquí debemos hacer un diccionario con el motor
 
-# Obtenemos la información de todos los sensores
+# Obtenemos la informacion de todos los sensores
 def getSystemInfo():
     distance = proximity.getDistance()
-    light = light.getLight()
-    humidity = humidity.getHumidity()
+    light = light.getValue()
+    humidity = humidity.getValue()
 
-    info = {'distance': distance, 'light': light, 'humidity': humidity}
+    info = {'distance': distance, 'light': light, 'humidity': humidity, 'is_wet': humidity}
     return info
 
 

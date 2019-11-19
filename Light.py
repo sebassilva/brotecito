@@ -7,7 +7,7 @@ class Light():
         self.sensor = LightSensor(sensor_pin)
 
     def getValue(self):
-        return self.sensor.value()
+        return self.sensor.value
 
 
 def test():
