@@ -14,7 +14,7 @@ class Humidity():
         self.is_humid = not self.is_humid
 
     def getValue(self):
-	print("Humidity: " + str(self.is_humid))
+	    print("Humidity: " + str(self.is_humid))
         return self.is_humid
  
 def test():
