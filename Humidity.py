@@ -3,7 +3,8 @@ import time
 
 class Humidity():
     def __init__(self, channel = 21):
-        # GPIO.setmode(GPIO.BCM)
+        GPIO.cleanup()
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(channel, GPIO.IN)
         self.is_humid = False
         GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)  # let us know when the pin goes HIGH or LOW
