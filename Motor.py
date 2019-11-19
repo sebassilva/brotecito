@@ -9,7 +9,8 @@ class Motor:
         self.control_pins = control_pins
         
         # CONFIGURAMOS LOS PINES DEL MOTOR
-        # GPIO.setmode(GPIO.BOARD)
+        GPIO.cleanup()
+        GPIO.setmode(GPIO.BOARD)
         for pin in self.control_pins:
           GPIO.setup(pin, GPIO.OUT)
           GPIO.output(pin, 0)
