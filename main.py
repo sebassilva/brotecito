@@ -29,7 +29,7 @@ def getSystemInfo():
     #     distance = 0
     try:
         light = light.getValue()
-        distance = 0
+        print(light)
     except:
         print("Error en el sensor de luz")
         light = 0
@@ -38,6 +38,7 @@ def getSystemInfo():
     except: 
         humidity = False
 
+    distance = 0
     info = {'distance': distance, 'light': light, 'humidity': humidity, 'is_wet': humidity}
     return info
 
