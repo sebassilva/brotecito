@@ -24,6 +24,7 @@ control = Control(actuators)
 def getSystemInfo():
     try:
         distance = proximity.getDistance()
+        print("Distancia: " + str(distance))
     except:
         print("Error en el sensor de distancia")
         distance = 0
