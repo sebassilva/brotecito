@@ -3,7 +3,7 @@ from time import sleep
 import threading
 
 
-def openValve(self, motor):
+def openValve(motor):
         print("Abriendo Valvula")
         motor.forward()
         sleep(5)
