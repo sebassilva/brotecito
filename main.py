@@ -9,9 +9,12 @@ from Light import Light
 
 from config import *
 
-sensor = DistanceSensor(23,24)
 light = Light()
-proximity = Proximity(sensor)
+try:
+    sensor = DistanceSensor(23,24)
+    proximity = Proximity(sensor)
+except:
+    print("no se pudo obtener el sensor de distancia")
 
 actuators = {'motor': Motor(), 'water': None}
 control = Control(actuators)
