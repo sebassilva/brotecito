@@ -3,7 +3,7 @@ import time
 
 class Motor:
     
-    def __init__(self, control_pins):
+    def __init__(self, control_pins=[11,12,13,15]):
         
         # PINES QUE POLARIZAN AL MOTOR
         self.control_pins = control_pins
