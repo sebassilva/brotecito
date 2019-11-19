@@ -21,13 +21,13 @@ class Control():
         self.distance = data.distance
         self.light = data.light
         self.humidity = self.humidity
-        # Si está cubierta y recibe luz, es de día. Incrementamos time_of_light
+        # Si esta cubierta y recibe luz, es de dia. Incrementamos time_of_light
         if not self.is_covered and self.light >= self.MIN_LIGHT:
             self.time_of_light += 1
         self.printInfo()
 
 
-    # Regresa True si está seca la planta
+    # Regresa True si esta seca la planta
     # False de cualquier otra forma
     def should_water_plant(self):
         if self.humidity <= MIN_HUMIDITY:
@@ -35,7 +35,7 @@ class Control():
         self.printInfo()
         return False
     
-    # Controla el motor si ya recibió suficiente luz
+    # Controla el motor si ya recibio suficiente luz
 
     def should_cover_plant(self):
         if self.light >= MAX_LIGHT:
