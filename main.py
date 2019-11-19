@@ -11,6 +11,7 @@ from Humidity import Humidity
 from config import *
 
 light = Light()
+humidity = Humidity()
 
 try:
     sensor = DistanceSensor(23,24)
@@ -24,8 +25,7 @@ control = Control(actuators)
 
 # Obtenemos la informacion de todos los sensores
 def getSystemInfo():
-    humidity = Humidity()
-
+    global humidity
     try:
         distance = proximity.getDistance()
         print("Distancia: " + str(distance))
