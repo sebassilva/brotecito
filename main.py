@@ -19,9 +19,20 @@ control = Control(actuators)
 
 # Obtenemos la informacion de todos los sensores
 def getSystemInfo():
-    distance = proximity.getDistance()
-    light = light.getValue()
-    humidity = humidity.getValue()
+    try:
+        distance = proximity.getDistance()
+    except:
+        print("Error en el sensor de distancia")
+        distance = 0
+    try:
+        light = light.getValue()
+    except:
+        print("Error en el sensor de luz")
+        light = 0
+    try:
+        humidity = humidity.getValue()
+    except: 
+        humidity = False
 
     info = {'distance': distance, 'light': light, 'humidity': humidity, 'is_wet': humidity}
     return info
