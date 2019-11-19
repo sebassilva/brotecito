@@ -1,8 +1,6 @@
 class Control():
     
-    MIN_HUMIDITY = 0.3
-    MIN_LIGHT = 0.3
-    MAX_LIGHT = 0.7
+
 
     def __init__(self, actuators):
         self.distance = 0.0
@@ -12,6 +10,9 @@ class Control():
         self.is_covered = False
         self.motor = actuators.get('motor')  # instance of motor
         self.water = actuators.get('water')  # instance of water
+        self.MIN_HUMIDITY = 0.3
+        self.MIN_LIGHT = 0.3
+        self.MAX_LIGHT = 0.7
 
 
 
@@ -34,7 +35,7 @@ class Control():
     # Controla el motor si ya recibio suficiente luz
 
     def should_cover_plant(self):
-        if self.light >= MAX_LIGHT:
+        if self.light >= self.MAX_LIGHT:
             return True
         return False
 
