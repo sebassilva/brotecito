@@ -5,13 +5,13 @@ class Control():
     MAX_LIGHT = 0.7
 
     def __init__(self, actuators):
-        distance = 0.0
-        light = 0.0
-        humidity = 0.0
-        time_of_light = 0.0
-        is_covered = False
-        motor = actuators.get('motor')  # instance of motor
-        water = actuators.get('water')  # instance of water
+        self.distance = 0.0
+        self.light = 0.0
+        self.humidity = 0.0
+        self.time_of_light = 0.0
+        self.is_covered = False
+        self.motor = actuators.get('motor')  # instance of motor
+        self.water = actuators.get('water')  # instance of water
 
     def printInfo(self):
         return ", ".join("%s: %s" % item for item in self.items())
