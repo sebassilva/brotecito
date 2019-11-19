@@ -1,6 +1,12 @@
 from gpiozero import Motor
 from time import sleep
-import thread
+import threading
+
+
+def openValve(self, motor):
+        motor.forward()
+        sleep(5)
+        
 
 class Valve():
     def __init__(self):
@@ -8,12 +14,13 @@ class Valve():
     
     def openValveThread(self):
         print("Abriendo Valvula")
-        motor.forward()
-        sleep(5)
+        x = threading.Thread(target=openValve, args=(self.motor,))
+        x.start()
+
         print("Cerrando valvula")
     
     def open(self):
-        thread.start_new_thread(self.openValveThread)
+        thread.start_new_thread(self.openValveThread, ())
 
 
 
