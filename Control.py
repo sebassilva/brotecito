@@ -18,9 +18,9 @@ class Control():
 
 
     def update(self, data): 
-        self.distance = data.distance
-        self.light = data.light
-        self.humidity = self.humidity
+        self.distance = data.get('distance')
+        self.light = data.get('light')
+        self.humidity = data.get('humidity')
         # Si esta cubierta y recibe luz, es de dia. Incrementamos time_of_light
         if not self.is_covered and self.light >= self.MIN_LIGHT:
             self.time_of_light += 1
