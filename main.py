@@ -41,7 +41,9 @@ def getSystemInfo():
     try:
 	    humidityVal = humidity.getValue()
 	    print("Humedad en main: " + str(humidityVal))
-    except: 
+    except Exception as e:
+        print("ENTRO EXCEPTCION POR ALGUNA RAZON")
+        print(e)
         humidityVal = False
 
     info = {'distance': distance, 'light': lightVal, 'humidity': humidityVal, 'is_wet': humidityVal}
