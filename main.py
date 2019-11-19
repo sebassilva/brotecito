@@ -41,6 +41,7 @@ def getSystemInfo():
 
     distance = 0
     info = {'distance': distance, 'light': lightVal, 'humidity': humidityVal, 'is_wet': humidityVal}
+    print(info)
     return info
 
 
