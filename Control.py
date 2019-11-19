@@ -28,7 +28,7 @@ class Control():
     # Regresa True si esta seca la planta
     # False de cualquier otra forma
     def should_water_plant(self):
-        if self.humidity <= MIN_HUMIDITY:
+        if self.humidity <= self.MIN_HUMIDITY:
             return True
         return False
     
