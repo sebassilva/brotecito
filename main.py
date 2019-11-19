@@ -10,11 +10,11 @@ from Light import Light
 from config import *
 
 light = Light()
-# try:
-#     sensor = DistanceSensor(23,24)
-#     proximity = Proximity(sensor)
-# except:
-#     print("no se pudo obtener el sensor de distancia")
+try:
+    sensor = DistanceSensor(23,24)
+    proximity = Proximity(sensor)
+except:
+    print("no se pudo obtener el sensor de distancia")
 
 actuators = {'motor': Motor(), 'water': None}
 control = Control(actuators)
@@ -22,11 +22,11 @@ control = Control(actuators)
 
 # Obtenemos la informacion de todos los sensores
 def getSystemInfo():
-    # try:
-    #     distance = proximity.getDistance()
-    # except:
-    #     print("Error en el sensor de distancia")
-    #     distance = 0
+    try:
+        distance = proximity.getDistance()
+    except:
+        print("Error en el sensor de distancia")
+        distance = 0
     try:
         lightVal = light.getValue()
         print(lightVal)
