@@ -30,7 +30,8 @@ def getSystemInfo():
     try:
         light = light.getValue()
         print(light)
-    except:
+    except Exception as e:
+        print(e)
         print("Error en el sensor de luz")
         light = 0
     try:
