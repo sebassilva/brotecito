@@ -6,10 +6,13 @@ from Proximity import Proximity
 from Control import Control
 from Motor import Motor
 from Light import Light
+from Humidity import Humidity
 
 from config import *
 
 light = Light()
+humidity = Humidity()
+
 try:
     sensor = DistanceSensor(23,24)
     proximity = Proximity(sensor)
