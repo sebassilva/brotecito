@@ -2,14 +2,13 @@ from gpiozero import Motor
 from time import sleep
 import threading
 
-
+# Clase que define el comportamiento de la valvula de agua
 def openValve(motor):
         print("Abriendo Valvula")
         motor.forward()
         sleep(5)
         print("Cerrando Valvula")
 
-        
 
 class Valve():
     def __init__(self):

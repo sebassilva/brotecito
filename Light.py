@@ -2,6 +2,7 @@ from gpiozero import LightSensor, PWMLED
 from signal import pause
 from time import sleep
 
+# Clase que define el comportamiento de el sensor de luz
 class Light():
     def __init__(self, sensor_pin=18):
         self.sensor = LightSensor(sensor_pin)

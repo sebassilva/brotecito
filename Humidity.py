@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
+# Clase que define el comportamiento del sensor de humedad
 class Humidity():
     def __init__(self, channel = 40):
         # GPIO.cleanup()
