@@ -43,11 +43,11 @@ class Control():
         print('Iniciando protocolo de activacion')
         if self.should_cover_plant():
             print("Cubriendo planta del sol")
-            self.motor.rotateForward()
+            self.motor.rotateForward(1)
         
         if self.should_water_plant():
             print("Regando la planta")
-            self.water.water()  ## cambiar por lo que sea que haga que caiga el agaua
+            #self.water.water()  ## cambiar por lo que sea que haga que caiga el agaua
 
 
 
