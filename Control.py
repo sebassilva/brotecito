@@ -29,21 +29,23 @@ class Control():
     # False de cualquier otra forma
     def should_water_plant(self):
         #False si está húmeda
-        return not self.humidity
+        if self.water_enabled:
+            return not self.humidity
+        return False
     
     # Controla el motor si ya recibio suficiente luz
     def should_cover_plant(self):
-        if self.water_enabled:
-            return self.light >= self.MAX_LIGHT:
-        else: 
-            return False
+        return self.light >= self.MAX_LIGHT
+
 
     # Serie de rutinas necesarias para correr 
     def activate(self):
         print('Iniciando protocolo de activacion')
         if self.should_cover_plant():
             print("Cubriendo planta del sol")
-            self.motor.rotateForward(1)
+            #self.motor.rotateForward(6)
+            #time.sleep(10)
+            #self.motor.rotateBackward(8)
         
         if self.should_water_plant():
             print("Regando la planta")

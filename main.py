@@ -9,18 +9,22 @@ from Light import Light
 from Humidity import Humidity
 
 from config import *
+import RPi.GPIO as GPIO
 
 light = Light()
 humidity = Humidity()
 
+
 try:
     sensor = DistanceSensor(23,24)
+    #sensor = DistanceSensor(16,18)
+
     proximity = Proximity(sensor)
 except:
     print("no se pudo obtener el sensor de distancia")
 
-actuators = {'motor': Motor(), 'water': None}
-control = Control(actuators)
+#actuators = {'motor': Motor(), 'water': None}
+#control = Control(actuators)
 
 
 # Obtenemos la informacion de todos los sensores
@@ -40,10 +44,10 @@ def getSystemInfo():
         print("Error en el sensor de luz")
         lightVal = 0
     try:
-	    humidityVal = humidity.getValue()
-	    print("Humedad en main: " + str(humidityVal))
+        humidityVal = humidity.getValue()
+        print("Humedad en main: " + str(humidityVal))
     except Exception as e:
-        print("ENTRO EXCEPTCION POR ALGUNA RAZON")
+        print("ENTRO EXCEPTION POR ALGUNA RAZON")
         print(e)
         humidityVal = False
 
@@ -59,14 +63,18 @@ while True:
     info  = getSystemInfo()    
     
     # ENVIAMOS LOS DATOS
-    response = requests.post( url = URL, params = info )
+    try:
+        response = requests.post( url = URL, params = info)
+        print(response.json())
+
+    except:
+        print("no se pudo conectar al servidor")
 
     # Actualizamos el controlador del sistema con los datos
-    control.update(info)
-    control.activate()
+    #control.update(info)
+    #control.activate()
 
     # OBTENEMOS LA RESPUESTA
-    print(response.json())
     
     # ESPERAMOS UN SEGUNDO PARA LA SIGUIENTE PETICION
     time.sleep(REFRESH_RATE)

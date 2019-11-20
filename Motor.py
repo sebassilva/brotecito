@@ -3,16 +3,17 @@ import time
 
 class Motor:
     
-    def __init__(self, control_pins=[11,12,13,15]):
-        
+    def __init__(self, control_pins=[7,11,13,15]):
+
         # PINES QUE POLARIZAN AL MOTOR
         self.control_pins = control_pins
         
         # CONFIGURAMOS LOS PINES DEL MOTOR
-        # GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BOARD)
+        
         for pin in self.control_pins:
-          GPIO.setup(pin, GPIO.OUT)
-          GPIO.output(pin, 0)
+            GPIO.setup(pin, GPIO.OUT)
+            GPIO.output(pin, 0)
         
         # SECUENCIA DE GIRO DEL MOTOR
         self.sequence = [
@@ -32,7 +33,7 @@ class Motor:
             for pin in range(4):
               GPIO.output(self.control_pins[pin], self.sequence[halfstep][pin])
             time.sleep(0.001)
-        #GPIO.cleanup()
+        GPIO.cleanup()
         
     def rotateBackward(self, spins):
         for i in range(512*spins):
@@ -40,4 +41,10 @@ class Motor:
             for pin in range(4):
               GPIO.output(self.control_pins[pin], self.sequence[::-1][halfstep][pin])
             time.sleep(0.001)
-        #GPIO.cleanup()
+        GPIO.cleanup()
+
+def test():
+    motor = Motor([7,11,13,15])
+    motor.rotateForward(spins=7)
+    
+#test()
